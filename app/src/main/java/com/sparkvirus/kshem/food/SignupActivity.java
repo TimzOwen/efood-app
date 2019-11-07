@@ -40,8 +40,22 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
+     //instanciating firebase auth
         mAuth = FirebaseAuth.getInstance();
 
+        //get current user
+        getCurrentSer();
+
+        //method to reference id
+      collectIds();
+      //method to sign up user
+      signUpUser();
+
+    }
+
+    //fuction to get current user
+    public void getCurrentSer()
+    {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -56,12 +70,21 @@ public class SignupActivity extends AppCompatActivity {
                 // ...
             }
         };
+    }
 
+
+    //functoion to collect Ids
+    public void collectIds()
+    {
         email = (EditText) findViewById(R.id.input_email);
         password = (EditText) findViewById(R.id.input_password);
         repassword = (EditText) findViewById(R.id.input_reEnterPassword);
         signup = (Button) findViewById(R.id.btn_signup);
+    }
 
+    //funtion to sign up user
+    public void signUpUser()
+    {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +126,7 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
-
     }
+
 
 }
