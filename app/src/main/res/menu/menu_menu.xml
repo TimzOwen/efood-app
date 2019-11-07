@@ -12,4 +12,11 @@
         android:orderInCategory="100"
         android:title="Logout"
         app:showAsAction="never"/>
+      <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home"
+        app:showAsAction="ifRoom"
+        />
+    
 </menu>
